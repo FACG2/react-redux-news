@@ -1,7 +1,7 @@
 import postsFixture from '../components/posts/Posts.fixture';
 
 const initialState = {
-  posts: postsFixture
+  postsArr: postsFixture
 };
 
 const posts = (state = initialState, action) => {

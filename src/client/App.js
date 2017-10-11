@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Counter from './components/counter/Counter';
 import Posts from './components/posts/Posts';
 
 import logo from './assets/logo.png';
@@ -14,7 +15,8 @@ class App extends Component {
           <h1 className='app__title'>Welcome to mantagen</h1>
         </header>
         <main className='app__main'>
-          <Posts />
+          <Counter />
+          <Posts category='news' tags={['gaza', 'gsg', 'life', 'real_timez']} />
         </main>
         <footer className='app__footer'>
           <img src={logo} className='app__logo' alt='call me hand' />

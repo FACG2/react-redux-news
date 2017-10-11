@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import './Posts.css';
 
 class Posts extends Component {
   render() {
-    const { posts } = this.props.posts;
+    const { posts, category, tags } = this.props;
+    const { postsArr } = posts;
 
     return (
       <article className='posts'>
+        <div>{ category }</div>
+        <div>{ tags.map(tag => `${tag}, `) }</div>
         <ul className='posts__post-list'>
           {
-            posts.map(post => (
+            postsArr.map(post => (
               <li className='posts__post' key={`posts__post@${post.id}`}>
                 <div className='posts__post-img-wrapper'>
                   <img className='posts__post-img' src={post.image} />
@@ -41,13 +44,15 @@ class Posts extends Component {
 }
 
 Posts.propTypes = {
-  posts: PropTypes.array
+  posts: PropTypes.object,
+  category: PropTypes.string,
+  tags: PropTypes.array
 };
 
-function mapStateToProps({ posts }) {
+const mapStateToProps = ({ posts }) => {
   return {
     posts
   };
-}
+};
 
 export default connect(mapStateToProps)(Posts);

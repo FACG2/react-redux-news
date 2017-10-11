@@ -1,0 +1,2 @@
+export const COUNTER_INCREMENT = Symbol('COUNTER_INCREMENT');
+export const COUNTER_DECREMENT = Symbol('COUNTER_DECREMENT');
