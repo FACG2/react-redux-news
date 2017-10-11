@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import './Posts.css';
 
@@ -38,6 +39,10 @@ class Posts extends Component {
     );
   }
 }
+
+Posts.propTypes = {
+  posts: PropTypes.array
+};
 
 function mapStateToProps({ posts }) {
   return {

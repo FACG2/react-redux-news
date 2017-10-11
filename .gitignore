@@ -1,3 +1,8 @@
+# React Bundle
+public/bundle.js
+public/bundle.js.map
+public/assets/
+
 # Logs
 logs
 *.log
@@ -56,4 +61,3 @@ typings/
 
 # dotenv environment variables file
 .env
-
