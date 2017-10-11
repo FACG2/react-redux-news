@@ -1,0 +1,43 @@
+{
+  "name": "express-react-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack && babel src --out-dir lib --copy-files",
+    "start": "node \"./lib/server\"",
+    "dev:build": "webpack",
+    "dev:start": "nodemon --exec babel-node ./src/server/",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.5",
+    "css-loader": "^0.28.7",
+    "eslint": "^4.8.0",
+    "eslint-plugin-react": "^7.4.0",
+    "file-loader": "^1.1.5",
+    "nodemon": "^1.12.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "style-loader": "^0.19.0",
+    "uuid": "^3.1.0",
+    "webpack": "^3.6.0"
+  }
+}
