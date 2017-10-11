@@ -16,7 +16,7 @@ class App extends Component {
         </header>
         <main className='app__main'>
           <Counter />
-          <Posts category='news' tags={['gaza', 'gsg', 'life', 'real_timez']} />
+          <Posts />
         </main>
         <footer className='app__footer'>
           <img src={logo} className='app__logo' alt='call me hand' />

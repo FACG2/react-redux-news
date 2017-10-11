@@ -2,20 +2,36 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import * as postsActions from '../../actions/posts-actions';
+
 import './Posts.css';
 
 class Posts extends Component {
+  componentDidMount() {
+    const { fetchPosts } = this.props;
+    fetchPosts();
+  }
   render() {
-    const { posts, category, tags } = this.props;
-    const { postsArr } = posts;
+    console.log(this.props);
+    const { posts, error, isFetching } = this.props;
 
     return (
       <article className='posts'>
-        <div>{ category }</div>
-        <div>{ tags.map(tag => `${tag}, `) }</div>
         <ul className='posts__post-list'>
           {
-            postsArr.map(post => (
+            isFetching && (
+              <div className='posts__loading'>
+                Loading ...
+              </div>
+            )
+          }
+          { error && (
+            <div className='posts__error'>
+              { error }
+            </div>
+          )}
+          {
+            posts.map(post => (
               <li className='posts__post' key={`posts__post@${post.id}`}>
                 <div className='posts__post-img-wrapper'>
                   <img className='posts__post-img' src={post.image} />
@@ -44,15 +60,18 @@ class Posts extends Component {
 }
 
 Posts.propTypes = {
-  posts: PropTypes.object,
-  category: PropTypes.string,
-  tags: PropTypes.array
+  posts: PropTypes.array,
+  fetchPosts: PropTypes.func,
+  error: PropTypes.string,
+  isFetching: PropTypes.bool
 };
 
-const mapStateToProps = ({ posts }) => {
+const mapStateToProps = state => {
   return {
-    posts
+    posts: state.posts.posts,
+    error: state.posts.error,
+    isFetching: state.posts.isFetching
   };
 };
 
-export default connect(mapStateToProps)(Posts);
+export default connect(mapStateToProps, postsActions)(Posts);
