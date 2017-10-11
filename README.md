@@ -26,3 +26,12 @@
 - a pure function, listens for actions
 
 `reducer :: (previousState, action) -> newState`
+
+## How to run this app
+### Dev
+1. Clone this repo
+1. run `npm install`
+1. run `npm run dev:build`
+  - this bundles and watches the react app
+1. in another terminal tab, run `npm run dev:start`
+  - this runs and watches the server
